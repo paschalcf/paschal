@@ -3,7 +3,7 @@
 //  WebCacheTests
 //
 //  Created by paschal on 15-2-2.
-//  Copyright (c) 2015年 caijing. All rights reserved.
+//  Copyright (c) 2015年 xxxx. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
