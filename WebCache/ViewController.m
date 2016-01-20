@@ -32,21 +32,21 @@
     m_webView.delegate =(id <UIWebViewDelegate>)self;
     [self.view addSubview:m_webView];
     m_webView.scalesPageToFit = YES;
-//    [m_webView setBackgroundColor:[UIColor redColor]];
-//        NSString *filePath = [[NSBundle mainBundle]pathForResource:@"web" ofType:@"html"];
-//        NSString *htmlString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-//    htmlString = [self getImageByHtmlContent:htmlString];
-//        [m_webView loadHTMLString:htmlString baseURL:[NSURL URLWithString:filePath]];
-////    [m_webView stringByEvaluatingJavaScriptFromString:@"loadImage(1001,11,100,100)"];
+    [m_webView setBackgroundColor:[UIColor redColor]];
+        NSString *filePath = [[NSBundle mainBundle]pathForResource:@"web" ofType:@"html"];
+        NSString *htmlString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+    htmlString = [self getImageByHtmlContent:htmlString];
+        [m_webView loadHTMLString:htmlString baseURL:[NSURL URLWithString:filePath]];
+//    [m_webView stringByEvaluatingJavaScriptFromString:@"loadImage(1001,11,100,100)"];
 //
     
-    [m_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.smzdm.com/temp/video.html"]]];
-//    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
-//    singleTap.delegate = self;
-//    singleTap.cancelsTouchesInView = NO;
-//    //    [self.view addGestureRecognizer:singleTap];
-//    
-//    [m_webView addGestureRecognizer:singleTap];
+//    [m_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.smzdm.com/temp/video.html"]]];
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+    singleTap.delegate = self;
+    singleTap.cancelsTouchesInView = NO;
+    //    [self.view addGestureRecognizer:singleTap];
+    
+    [m_webView addGestureRecognizer:singleTap];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -148,8 +148,8 @@
 - (void)handleSingleTap:(UITapGestureRecognizer *)sender{
     CGPoint pt = [sender locationInView:m_webView];
     
-//    NSString *js = [NSString stringWithFormat:@"document.elementFromPoint(%f, %f).tagName", pt.x, pt.y];
-    NSString *js = @"document.body.innerHTML";
+    NSString *js = [NSString stringWithFormat:@"document.elementFromPoint(%f, %f).tagName", pt.x, pt.y];
+//    NSString *js = @"document.body.innerHTML";
 
     NSString * tagName = [m_webView stringByEvaluatingJavaScriptFromString:js];
 //    NSString *setSrc = [NSString stringWithFormat:@"document.elementFromPoint(%f, %f).src=%@",pt.x, pt.y,@"http://upload.hbrchina.org/2014/1010/1412950010274.jpg"];
